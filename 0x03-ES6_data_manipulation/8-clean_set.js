@@ -5,7 +5,8 @@ export default function cleanSet(set, startString) {
   }
   // Use filter and map to process matching set values
   return [...set]
-    .filter((value) => value.startsWith(startString))
-    .map((value) => value.slice(startString.length)) // Extract remaining part
+    .filter((value) => (value !== undefined ? value.startsWith(startString) : ''))
+    // Extract remaining part
+    .map((value) => (value !== undefined ? value.slice(startString.length) : ''))
     .join('-');
 }
